@@ -9,7 +9,7 @@ argument to receive the status broadcast. Please refer to number 7 to do the tes
 
 | Code | Description        |
 | ---- | ------------------ |
-| 1002 | Account is existing|
+| 1002 | Account already exists|
 
 ## 2. Get Token
 
@@ -18,8 +18,6 @@ Request method: /v1/app/auth/open/getToken
 After account registration, use "Get Token" api to get token and then access to other KIRI ENGINE services. 
 
 **token expires in 30 mins，please cache it so that you do not have to request token everytime.**
-
-![image-20230113162342483](/Users/xuefengwang/Library/Application Support/typora-user-images/image-20230113162342483.png)
 
 ## 3. Update account information
 
