@@ -18,8 +18,6 @@ kiri服务通过账号的方式授权使用服务,可自定义账号密码，如
 
 **token过期时间30分钟，建议通过其他方式缓存，尽量减少请求次数。**
 
-![image-20230113162342483](/Users/xuefengwang/Library/Application Support/typora-user-images/image-20230113162342483.png)
-
 ## 3. 修改账号
 
 请求地址: /v1/app/organization/update
