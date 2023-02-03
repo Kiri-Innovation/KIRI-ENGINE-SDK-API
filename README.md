@@ -60,13 +60,13 @@ Request method: /v1/app/calculate/getModelZip
 
 Use this API to get 3d model zip file download link. This link will be available in 60 mins.
 
-| Code | Description                             |      |
-| ---- | -------------------------------- | ---- |
-| 2000 | This model status is processing, please wait            |      |
-| 2001 | This model status is failed，cannot get download link |      |
-| 2008 | This model status is queueing, please wait      |      |
-| 2002 | This model has been exported already, cannot get download link       |      |
-| 2003 | Error, cannot get status of this model                     |      |
+| Code | Description                             |
+| ---- | -------------------------------- |
+| 2000 | This model status is processing, please wait            |
+| 2001 | This model status is failed，cannot get download link | 
+| 2008 | This model status is queueing, please wait      |
+| 2002 | This model has been exported already, cannot get download link       |
+| 2003 | Error, cannot get status of this model                     |
 
 ## 7. Test notification
 
