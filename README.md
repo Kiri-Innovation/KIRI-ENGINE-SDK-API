@@ -11,7 +11,7 @@ argument to receive the status broadcast. Please refer to number 7 to do the tes
 | ---- | ------------------ |
 | 1002 | Account already exists|
 
-## 2. Get Token
+## 2. Get token
 
 Request method: /v1/app/auth/open/getToken
 
@@ -80,7 +80,7 @@ This API to test if you can receive the 3d model status broadcast from KIRI ENGI
 
 **3、Please return HTTP code 200 to our server if you receive the notification.**
 
-## 8. Globle Code Instruction
+## 8. Globle code instruction
 
 | Code | Description                             | Solution                    |
 | ---- | -------------------------------- | --------------------------- |
