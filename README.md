@@ -1,4 +1,4 @@
-# KIRIENGINE SDK API Instruction
+# KIRIENGINE API Instruction
 
 ## 1. Register an account
 
