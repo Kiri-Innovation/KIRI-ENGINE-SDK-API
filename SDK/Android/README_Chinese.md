@@ -16,4 +16,4 @@
 
 <br/>
 
-## 英文版本: [English version](README.md)
+英文版本: [English version](README.md)
