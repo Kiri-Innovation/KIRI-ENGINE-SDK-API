@@ -1,16 +1,16 @@
-## 3DModelDisplayKit Android 的使用
+## 3DModelDisplayKit Android Usage
 
-## 版本说明:
+## Version description:
 
-| 库名称 | 当前最新版本 |
+| Library name | Latest version |
 | ----- | ----- |
 | BasicAuthentication | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.0.0-green"> |
 | 3DModelDisplayKit | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.0.0-green"> |
 
-## 1. 集成进项目
+## 1. Integrate to project
 
 ```groovy
-// 添加远程 maven 仓库地址
+// Add maven address
 repositories {
     maven { url 'https://repository.kiri-engine.com/repository/maven-public/' }
 }
@@ -22,7 +22,7 @@ dependencies {
 }
 ```
 
-## 2. 在 Application 中初始化 SDK
+## 2. Initialize SDK in Application
 
 ```Kotlin
 class App : Application() {
@@ -69,27 +69,27 @@ class App : Application() {
 }
 ```
 
-| 参数名称 | 说明 |
+| Parameter Name | Description |
 | ----- | ----- |
 | context | Context |
-| isDebug | 是否为测试模式, 默认为非测试模式, 若为测试环境, 推荐打开 |
-| env | SDK 环境, EnvType.Test 为测试, EnvType.Prod 为正式 |
-| appKey | 本 APP 授权的 appKey, 请勿泄露该 key, 且 key 只能使用在指定包名的 app 中 |
-| onSuccess | SDK 初始化成功回调 |
-| onError | SDK 初始化失败回调, 会将异常信息带回 |
+| isDebug | if this is Debug mode. Default is off. If you are in testing environment, we recommend you turn this on |
+| env | SDK environment, EnvType.Test is Testing environment, EnvType.Prod is Production environment |
+| appKey | App key is the unique key can be used in certain app package. Please do not give to others|
+| onSuccess | initialize SDK successfully |
+| onError | initialize SDK failed, will return the fail reason |
 
-可能在 onError 中出现的异常:
+Possible errors in onError:
 
-| 异常类型 | 说明 | 解决方案 |
+| Error type | Description | Solution |
 | ----- | ----- | -----|
-| AccountNotExistException | 账号不存在 | 检查账号信息是否正确 |
-| AuthenticationException | 验证的账号或密码错误 | 检查账号信息是否正确 |
-| ExhaustedException | 接口的调用次数用尽 | 联系开发人员 |
-| SDKException | 接口的调用次数用尽 | 初始化失败, 联系开发人员 |
+| AccountNotExistException | Account does not exist | Check if account info is correct |
+| AuthenticationException | Account or password incorrect | Check if account info is correct |
+| ExhaustedException | Credits used up | Please contact us |
+| SDKException | Credits used up | Please contact us |
 
 <br/>
 
-### 3. 在 MainActivity.xml 中引入 ModelView 控件
+### 3. Add ModelView widget in MainActivity.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -107,7 +107,7 @@ class App : Application() {
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-### 4. 在 MainActivity.kt 中使用动态模型载入
+### 4. Load model in MainActivity.kt
 
 ```Kotlin
 package com.kiri.sdk.samples.model.view.demo
