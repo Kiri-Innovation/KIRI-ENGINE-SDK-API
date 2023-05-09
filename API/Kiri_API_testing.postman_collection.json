@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"account\": \"unikbasetest1\",\r\n  \"password\": \"{{passord}}\",\r\n  \"name\": \"Unikbase Test 1\",\r\n  \"phone\": \"0123456789\",\r\n  \"fax\": \"0123456789\",\r\n  \"email\": \"sebastien.michea@unikbase.com\",\r\n  \"address\": \"glanon france\",\r\n  \"remarks\": \"none\",\r\n  \"notifyUrl\": \"none\"\r\n}",
+							"raw": "{\r\n  \"account\": \"Your account\",\r\n  \"password\": \"{{passord}}\",\r\n  \"name\": \"Test 1\",\r\n  \"phone\": \"0123456789\",\r\n  \"fax\": \"0123456789\",\r\n  \"email\": \"Your email\",\r\n  \"address\": \"glanon france\",\r\n  \"remarks\": \"none\",\r\n  \"notifyUrl\": \"none\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -52,7 +52,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"account\": \"unikbasetest1\",\r\n  \"name\": \"Unikbase Test 1\",\r\n  \"phone\": \"0123456789\",\r\n  \"fax\": \"0123456789\",\r\n  \"email\": \"sebastien.michea@unikbase.com\",\r\n  \"address\": \"glanon france\",\r\n  \"remarks\": \"none\",\r\n  \"notifyUrl\": \"https://dev1.unikbase.dev/meveo/rest/kiriNotification\"\r\n}",
+							"raw": "{\r\n  \"account\": \"Your account\",\r\n  \"name\": \"Test 1\",\r\n  \"phone\": \"0123456789\",\r\n  \"fax\": \"0123456789\",\r\n  \"email\": \"Your email\",\r\n  \"address\": \"glanon france\",\r\n  \"remarks\": \"none\",\r\n  \"notifyUrl\": \"Your webhook url\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -119,7 +119,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"account\": \"unikbasetest1\",\r\n  \"password\": \"unikbasepass1\"\r\n}",
+							"raw": "{\r\n  \"account\": \"Your account\",\r\n  \"password\": \"Your password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -148,7 +148,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"account\": \"unikbasetest1\",\r\n  \"password\": \"unikbasepass1\"\r\n}",
+									"raw": "{\r\n  \"account\": \"Your account\",\r\n  \"password\": \"Your password\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -559,11 +559,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://dev1.unikbase.dev/meveo/rest/kiriNotification",
+							"raw": "Your webhook url",
 							"protocol": "https",
 							"host": [
 								"dev1",
-								"unikbase",
+								"Your Host",
 								"dev"
 							],
 							"path": [

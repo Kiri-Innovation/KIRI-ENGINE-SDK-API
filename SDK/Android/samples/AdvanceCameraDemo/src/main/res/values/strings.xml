@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">AdvanceCameraDemo</string>
+
+    <string name="take_photo_text">Take Photo</string>
+
+    <string name="auto_mode_text">A</string>
+    <string name="manual_mode_text">M</string>
+
+    <string name="manual_exposure_text">EXPOSURE</string>
+    <string name="manual_iso_text">ISO</string>
+    <string name="manual_ss_text">SHUTTER</string>
+
+    <string name="now_ev">Now EV: %1$s</string>
+    <string name="now_iso">Now ISO: %1$s</string>
+    <string name="now_ss">Now SS: %1$s</string>
+
+    <string name="ev_text">EV</string>
+    <string name="iso_text">ISO</string>
+    <string name="ss_text">SS</string>
+</resources>
