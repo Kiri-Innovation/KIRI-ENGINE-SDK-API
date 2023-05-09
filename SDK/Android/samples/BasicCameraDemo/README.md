@@ -1,18 +1,18 @@
-# CameraKit Android 使用说明
+# CameraKit Android Usage
 
-## 版本说明:
+## Version description:
 
-| 库名称 | 当前最新版本 |
+| Library name | Latest version |
 | ----- | ----- |
 | BasicAuthentication | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.0.0-green"> |
 | CameraKit | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.0.0-green"> |
 
 <br/>
 
-## 1. 集成进项目
+## 1. Integrate to project
 
 ```gradle
-// 添加远程 maven 仓库地址
+// Add maven address
 repositories {
   maven { url 'https://repository.kiri-engine.com/repository/maven-public/' }
 }
@@ -22,7 +22,7 @@ dependencies {
     implementation 'com.kiri.sdk:BasicAuthentication:<version>'
     implementation 'com.kiri.sdk:CameraKit:<version>'
 
-    // 以下依赖必须添加
+    // Must add below dependencies
     implementation "androidx.camera:camera-core:1.2.0-alpha02"
     implementation "androidx.camera:camera-lifecycle:1.2.0-alpha02"
     implementation 'androidx.camera:camera-view:1.2.0-alpha02'
@@ -32,7 +32,7 @@ dependencies {
 
 <br/>
 
-## 2. 在 Application 中初始化 SDK
+## 2. Initialize SDK in Application
 
 ```Kotlin
 class App : Application() {
@@ -79,29 +79,29 @@ class App : Application() {
 }
 ```
 
-| 参数名称 | 说明 |
+| Parameter Name | Description |
 | ----- | ----- |
 | context | Context |
-| isDebug | 是否为测试模式, 默认为非测试模式, 若为测试环境, 推荐打开 |
-| env | SDK 环境, EnvType.Test 为测试, EnvType.Prod 为正式 |
-| appKey | 本 APP 授权的 appKey, 请勿泄露该 key, 且 key 只能使用在指定包名的 app 中 |
-| onSuccess | SDK 初始化成功回调 |
-| onError | SDK 初始化失败回调, 会将异常信息带回 |
+| isDebug | if this is Debug mode. Default is off. If you are in testing environment, we recommend you turn this on |
+| env | SDK environment, EnvType.Test is Testing environment, EnvType.Prod is Production environment |
+| appKey | App key is the unique key can be used in certain app package. Please do not give to others|
+| onSuccess | initialize SDK successfully |
+| onError | initialize SDK failed, will return the fail reason |
 
-可能在 onError 中出现的异常:
+Possible errors in onError:
 
-| 异常类型 | 说明 | 解决方案 |
+| Error type | Description | Solution |
 | ----- | ----- | -----|
-| AccountNotExistException | 账号不存在 | 检查账号信息是否正确 |
-| AuthenticationException | 验证的账号或密码错误 | 检查账号信息是否正确 |
-| ExhaustedException | 接口的调用次数用尽 | 联系开发人员 |
-| SDKException | 接口的调用次数用尽 | 初始化失败, 联系开发人员 |
+| AccountNotExistException | Account does not exist | Check if account info is correct |
+| AuthenticationException | Account or password incorrect | Check if account info is correct |
+| ExhaustedException | Credits used up | Please contact us |
+| SDKException | Credits used up | Please contact us |
 
 <br/>
 
 ## 3. Camera API
 
-布局文件中使用:
+In layout file:
 
 ```xml
 
@@ -133,27 +133,28 @@ cameraView.setTakePictureListener(object : OnTakePictureListener {
 cameraView.takePicture()
 ```
 
-方法说明:
+Method:
 
-| 方法名称 | 说明 |
+| Method name | Definition |
 | ----- | ----- |
-| bind | 初始化相机和预览操作, 参数为 LifecycleOwner 对象, 会自动绑定生命周期 |
-| setSavePath | 设置拍摄的照片存放路径, 参数为 File 对象 |
-| setTakePictureListener | 设置拍摄相关的事件回调，为 OnTakePictureListener 类型 |
-| takePicture | 拍摄照片 |
+| bind | Initialize camera and preview |
+| setSavePath | Set the path of captured photos. |
+| setTakePictureListener | Set capturing photo related callback |
+| takePicture | Taking photos |
 
 <br/>
 
-OnTakePictureListener 声明:
+OnTakePictureListener declaration:
 
-| 返回类型 | 方法签名 | 说明 |
+| Return type | Function signiture | Definition |
 | ----- | ----- | ----- |
-| void | onTaken(photoFile: File) | 拍摄并保存单张照片成功的回调方法, 会将本次拍摄成功的照片文件返回回来 |
-| void | onTakeError(exception: Exception) | 拍摄发生异常时的回调, 参数会将本次的异常信息携带回来 |
+| void | onTaken(photoFile: File) | Capture one photo succesfully, will return the captured photo |
+| void | onTakeError(exception: Exception) | Capture one photo failed, will return the error message |
 
-⚠️ 注意：相机权限需要自行动态申请
 
-## 4. 示例代码
+⚠️ Note：You have to ask the camera permission youself
+
+## 4. Code examples
 
 #### activity_main.xml
 
