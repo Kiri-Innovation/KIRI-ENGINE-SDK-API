@@ -1,9 +1,5 @@
 # KIRI Engine API&SDK 使用说明
 
-## [English version](README.md)
-
-<br/>
-
 ## [API 文档说明](API/README_Chinese.md)
 
 <br/>
@@ -13,3 +9,7 @@
 <br/>
 
 ## [iOS SDK 文档说明](SDK/iOS/README_Chinese.md)
+
+<br/>
+
+## 英文版本: [English version](README.md)

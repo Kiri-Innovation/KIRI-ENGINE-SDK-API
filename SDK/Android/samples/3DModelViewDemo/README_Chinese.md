@@ -1,7 +1,5 @@
 ## 3DModelDisplayKit Android 的使用
 
-## [English version](README.md)
-
 ## 版本说明:
 
 | 库名称 | 当前最新版本 |
@@ -176,3 +174,7 @@ class MainActivity : AppCompatActivity() {
 
 }
 ```
+
+<br/>
+
+## 英文版本: [English version](README.md)

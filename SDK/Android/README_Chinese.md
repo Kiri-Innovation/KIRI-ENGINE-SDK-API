@@ -1,9 +1,5 @@
 # KIRI Engine Android SDK 使用说明
 
-## [English version](README.md)
-
-<br/>
-
 ## [samples](samples) 文件夹中是所有 SDK 的示例 Demo 工程, 包含详尽的代码使用示例
 
 <br/>
@@ -17,3 +13,7 @@
 <br/>
 
 ## [3DModelDisplay SDK 文档](samples/3DModelViewDemo/README_Chinese.md)
+
+<br/>
+
+## 英文版本: [English version](README.md)

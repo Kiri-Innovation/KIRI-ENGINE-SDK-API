@@ -1,7 +1,5 @@
 # CameraKit Android 使用说明
 
-## [中文版本](README_Chinese.md)
-
 ## 版本说明:
 
 | 库名称 | 当前最新版本 |
@@ -252,3 +250,7 @@ class MainActivity : AppCompatActivity() {
 
 }
 ```
+
+<br/>
+
+Chinese version: [中文版本](README_Chinese.md)
