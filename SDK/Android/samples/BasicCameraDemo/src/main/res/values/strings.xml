@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BasicCameraDemo</string>
+
+    <string name="take_photo_text">Take Photo</string>
+</resources>
