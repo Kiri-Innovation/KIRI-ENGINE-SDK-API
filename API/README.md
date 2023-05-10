@@ -32,6 +32,8 @@ Request URL: /v1/app/calculate/upload
 Use this API to upload the photoset to KIRI ENGINE server and get serialize number of the model. This serialize number is unique for this project. 
 To ensure the quality of the 3d models, please upload at least 20 images but no more than 70 images. If you need upload more, please contact us.
 
+**We have recently launched the V2 version of our API, which supports custom model quality, texture quality, and AI Object Masking. For more details, please refer to the API documentation**
+
 | Code | Description                                                  |
 | ---- | ------------------------------------------------------------ |
 | 2004 | Uploaded photoset is empty, please check                     |
@@ -87,17 +89,23 @@ Request URL: /v1/app/user/create
 
 If there are multiple account usage scenarios, we recommend creating a subaccount and using the subaccount to log in and obtain a token (refer to 9). This way, you can upload images using the subaccount, which has almost the same functionality as the main organization account.
 
-## 9. Subaccount Login
+## 9. Update Subaccount
+
+Request URL: /v1/app/user/update
+
+Considering that some users may require additional notification settings, we support setting notification addresses on sub-accounts as well. If a sub-account is used to upload images, notifications regarding that task will be prioritized to the notification address set on the sub-account. If no notification address is set on the sub-account, then the notification will be sent to the organization account.
+
+## 10. Subaccount Login
 
 Request URL: /v1/app/auth/open/login
 
 Use this entry point to log in to a subaccount and obtain a token, following the same process as the main organization account.
 
-## 10. Create AppKey
+## 11. Create AppKey
 
 Request URL: /v1/app/sdk/createAppKey.
 
-## 11. Globle code instruction
+## 12. Globle code instruction
 
 | Code | Description                                | Solution                                   |
 | ---- | ------------------------------------------ | ------------------------------------------ |
