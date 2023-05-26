@@ -50,9 +50,6 @@ struct ContentView: View {
       }
       .padding()
       .onAppear {
-          KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
-                print("result:\(result)")
-            }
           let docPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
           cameraView.setPhotoFolderPath("\(docPath)/KIRIEngineSDK")
       }
@@ -278,9 +275,6 @@ struct ContentView: View {
             }
         })
         .onAppear {
-            KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
-                print("result:\(result)")
-            }
 
             let docPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             cameraView.setPhotoFolderPath("\(docPath)/CameraKit")
@@ -365,13 +359,19 @@ struct ContentView_Previews: PreviewProvider {
 ```
 
 ## VideoCapture
+### 1.使用KIRIEngineSDK时，先使用KIRISDK.share.setup初始化鉴权
+```swift
+KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
+    print("result:\(result)")
+}
+```
 ### 初始化VideoCaptureVC
 ```swift
 /// - Parameters:
 ///   - folderPath: set video file save path
 ///   - minSecond: min record Second, If it is less than 3 seconds, the default value is 3 seconds
 ///   - maxSecond: max record Second, Longer than 2 minutes The default value is 2 minutes
-public init(folderPath: String? = nil, minSecond: Int = 3, maxSecond: Int = 60 * 2)
+public init?(folderPath: String? = nil, minSecond: Int = 3, maxSecond: Int = 60 * 2)
 ```
 
 ### 获取拍摄的视频链接
@@ -400,7 +400,7 @@ class VideoCaptureProxy: VideoCaptureVCDelegate {
 }
 
 struct VideoCaptureContentView: View {
-    let vc = VideoCaptureVC()
+    let vc = VideoCaptureVC()!
     let proxy = VideoCaptureProxy()
     @State
     var isPresented = false

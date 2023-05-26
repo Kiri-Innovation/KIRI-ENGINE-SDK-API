@@ -134,9 +134,6 @@ struct AdvanceContentView: View {
             }
         })
         .onAppear {
-            KIRISDK.share.setup(envType: .test, appKey: "8dc8f5321f6325c55c649409342e7af6") { result in
-                print("result:\(result)")
-            }
             let docPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             cameraView.setPhotoFolderPath("\(docPath)/CameraKit")
         }

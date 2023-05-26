@@ -6,36 +6,58 @@
 //
 
 import SwiftUI
+import KIRIEngineSDK
 
 struct ContentView: View {
-    var body: some View {
+  @State
+  var isAuthorization = false
+  
+  var body: some View {
+    VStack {
+      if isAuthorization {
         NavigationView {
-            List {
-                NavigationLink("Camera Demo") {
-                    CameraContentView()
-                        .navigationTitle("Camera Demo")
-                        .navigationBarTitleDisplayMode(.inline)
-                }
-                
-                NavigationLink("Advance Camera Demo") {
-                    AdvanceContentView()
-                        .navigationTitle("Advance Camera Demo")
-                        .navigationBarTitleDisplayMode(.inline)
-                }
-                NavigationLink("Video Demo") {
-                    VideoCaptureContentView()
-                        .navigationTitle("Video Demo")
-                        .navigationBarTitleDisplayMode(.inline)
-                }
-
+          List {
+            NavigationLink("Camera Demo") {
+              CameraContentView()
+                .navigationTitle("Camera Demo")
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .navigationTitle("KIRIEngineSDK-Demo")
+            
+            NavigationLink("Advance Camera Demo") {
+              AdvanceContentView()
+                .navigationTitle("Advance Camera Demo")
+                .navigationBarTitleDisplayMode(.inline)
+            }
+            NavigationLink("Video Demo") {
+              VideoCaptureContentView()
+                .navigationTitle("Video Demo")
+                .navigationBarTitleDisplayMode(.inline)
+            }
+            
+          }
+          .navigationTitle("KIRIEngineSDK-Demo")
         }
+        
+      } else {
+        
+      }
     }
+    .onAppear {
+      KIRISDK.share.setup(envType: .test, appKey: "8dc8f5321f6325c55c649409342e7af6") { result in
+        print("result:\(result)")
+        switch result {
+        case .success:
+          isAuthorization = true
+        case .failure:
+          isAuthorization = false
+        }
+      }
+    }
+  }
 }
-
-struct ContentView_Previews: PreviewProvider {
+  
+  struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+      ContentView()
     }
-}
+  }
