@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name          = 'KIRIEngineSDK'
-    s.version       = '1.0.0'
+    s.version       = '1.1.0'
     s.summary       = "kiri's sdk collection"
     s.homepage      = 'https://github.com/Kiri-Innovation/KIRI-ENGINE-SDK-API'
     s.license       = { 
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
      }
     s.author        = 'KIRI'
     s.source        = {
-        :http => 'https://repository.kiri-engine.com/repository/iOS-SDK/1.0.0/KIRIEngineSDK.xcframework.zip'
+        :http => 'https://repository.kiri-engine.com/repository/iOS-SDK/#{s.version}/KIRIEngineSDK.xcframework.zip'
     }
 
     s.swift_version = '5.0'
