@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
      }
     s.author        = 'KIRI'
     s.source        = {
-        :http => 'https://repository.kiri-engine.com/repository/iOS-SDK/#{s.version}/KIRIEngineSDK.xcframework.zip'
+        http: "https://repository.kiri-engine.com/repository/iOS-SDK/#{s.version}/KIRIEngineSDK.xcframework.zip"
     }
 
     s.swift_version = '5.0'
