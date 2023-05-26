@@ -30,6 +30,26 @@ dependencies {
 }
 ```
 
+
+
+# !!!仅使用视频校验工具
+则可仅集成 
+```gradle
+dependencies {
+    // SDKs
+    implementation 'com.kiri.sdk:BasicAuthentication:<version>'
+}
+```
+
+然后在需要校验的位置使用如下代码即可:
+```kotlin
+import com.kiri.sdk.basic.tool.VideoVerifyTool
+
+// Use tool get file specialKey
+val specialKey = VideoVerifyTool.verify(file)
+// TODO Use key to create task by server
+```
+
 <br/>
 
 ## 2. 在 Application 中初始化 SDK
