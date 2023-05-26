@@ -22,7 +22,7 @@ class VideoCaptureProxy: VideoCaptureVCDelegate {
 }
 
 struct VideoCaptureContentView: View {
-    let vc = VideoCaptureVC()
+    let vc = VideoCaptureVC()!
     let proxy = VideoCaptureProxy()
     @State
     var isPresented = false
