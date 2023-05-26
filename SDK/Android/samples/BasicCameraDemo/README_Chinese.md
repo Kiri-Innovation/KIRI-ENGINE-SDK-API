@@ -2,10 +2,10 @@
 
 ## 版本说明:
 
-| 库名称 | 当前最新版本 |
-| ----- | ----- |
-| BasicAuthentication | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.0.0-green"> |
-| CameraKit | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.0.0-green"> |
+| 库名称 | 当前最新版本                                                                               |
+| ----- |--------------------------------------------------------------------------------------|
+| BasicAuthentication | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.1.0-green"> |
+| CameraKit | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.1.0-green"> |
 
 <br/>
 
