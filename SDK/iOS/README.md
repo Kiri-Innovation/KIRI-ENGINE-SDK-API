@@ -26,4 +26,4 @@ dependencies: [
     - [**BasicCamera**](Usage.md#BasicCamera)
     - [**AdvanceCamera**](Usage.md#AdvanceCamera)
     - [**3DModelDisplay**](Usage.md#3DModelDisplay)
-    - [**Video Capture**](Usage.md#Video Capture)
+    - [**VideoCapture**](Usage.md#VideoCapture)

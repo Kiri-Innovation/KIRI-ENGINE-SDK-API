@@ -364,7 +364,7 @@ struct ContentView_Previews: PreviewProvider {
 
 ```
 
-## Video Capture
+## VideoCapture
 ### 初始化VideoCaptureVC
 ```swift
 /// - Parameters:
