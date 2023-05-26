@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02B9FAEF2A207AEF0002E3D8 /* VideoCaptureContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B9FAEE2A207AEF0002E3D8 /* VideoCaptureContentView.swift */; };
 		02C4E4E92A0A52DE006531A8 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4E4E82A0A52DE006531A8 /* ExampleApp.swift */; };
 		02C4E4ED2A0A52DF006531A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C4E4EC2A0A52DF006531A8 /* Assets.xcassets */; };
 		02C4E4F02A0A52DF006531A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C4E4EF2A0A52DF006531A8 /* Preview Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02B9FAEE2A207AEF0002E3D8 /* VideoCaptureContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCaptureContentView.swift; sourceTree = "<group>"; };
 		02C4E4E52A0A52DE006531A8 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C4E4E82A0A52DE006531A8 /* ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
 		02C4E4EC2A0A52DF006531A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				02C4E4E82A0A52DE006531A8 /* ExampleApp.swift */,
 				02C4E4F92A0A5351006531A8 /* AdvanceContentView.swift */,
 				02C4E4F82A0A5351006531A8 /* CameraContentView.swift */,
+				02B9FAEE2A207AEF0002E3D8 /* VideoCaptureContentView.swift */,
 				02C4E4F72A0A5351006531A8 /* ContentView.swift */,
 				02C4E4F62A0A5351006531A8 /* UIViewPreview.swift */,
 				02C4E4EC2A0A52DF006531A8 /* Assets.xcassets */,
@@ -89,7 +92,6 @@
 				78636BBBD7A2D960218D493A /* Pods-Example.debug.xcconfig */,
 				0B567932212530AA51C3133E /* Pods-Example.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -218,6 +220,7 @@
 				02C4E4FC2A0A5351006531A8 /* CameraContentView.swift in Sources */,
 				02C4E4E92A0A52DE006531A8 /* ExampleApp.swift in Sources */,
 				02C4E4FB2A0A5351006531A8 /* ContentView.swift in Sources */,
+				02B9FAEF2A207AEF0002E3D8 /* VideoCaptureContentView.swift in Sources */,
 				02C4E4FA2A0A5351006531A8 /* UIViewPreview.swift in Sources */,
 				02C4E4FD2A0A5351006531A8 /* AdvanceContentView.swift in Sources */,
 			);
