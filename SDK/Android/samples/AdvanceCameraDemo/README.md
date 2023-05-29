@@ -1,18 +1,18 @@
-# AdvanceCameraKit Android 使用说明
+# AdvanceCameraKit Android Usage
 
-## 版本说明:
+## Version description:
 
-| 库名称 | 当前最新版本 |
+| Library name | Latest version |
 | ----- | ----- |
 | BasicAuthentication | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.0.0-green"> |
 | CameraKit | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.0.0-green"> |
 
 <br/>
 
-## 1. 集成进项目
+## 1. Integrate to project
 
 ```gradle
-// 添加远程 maven 仓库地址
+// Add maven address
 repositories {
   maven { url 'https://repository.kiri-engine.com/repository/maven-public/' }
 }
@@ -22,7 +22,7 @@ dependencies {
     implementation 'com.kiri.sdk:BasicAuthentication:<version>'
     implementation 'com.kiri.sdk:CameraKit:<version>'
 
-    // 以下依赖必须添加
+    // Must add below dependencies
     implementation "androidx.camera:camera-core:1.2.0-alpha02"
     implementation "androidx.camera:camera-lifecycle:1.2.0-alpha02"
     implementation 'androidx.camera:camera-view:1.2.0-alpha02'
@@ -32,7 +32,7 @@ dependencies {
 
 <br/>
 
-## 2. 在 Application 中初始化 SDK
+## 2. Initialize SDK in Application
 
 ```Kotlin
 class App : Application() {
@@ -79,152 +79,155 @@ class App : Application() {
 }
 ```
 
-| 参数名称 | 说明 |
+| Parameter Name | Description |
 | ----- | ----- |
 | context | Context |
-| isDebug | 是否为测试模式, 默认为非测试模式, 若为测试环境, 推荐打开 |
-| env | SDK 环境, EnvType.Test 为测试, EnvType.Prod 为正式 |
-| appKey | 本 APP 授权的 appKey, 请勿泄露该 key, 且 key 只能使用在指定包名的 app 中 |
-| onSuccess | SDK 初始化成功回调 |
-| onError | SDK 初始化失败回调, 会将异常信息带回 |
+| isDebug | if this is Debug mode. Default is off. If you are in testing environment, we recommend you turn this on |
+| env | SDK environment, EnvType.Test is Testing environment, EnvType.Prod is Production environment |
+| appKey | App key is the unique key can be used in certain app package. Please do not give to others|
+| onSuccess | initialize SDK successfully |
+| onError | initialize SDK failed, will return the fail reason |
 
-可能在 onError 中出现的异常:
+Possible errors in onError:
 
-| 异常类型 | 说明 | 解决方案 |
+| Error type | Description | Solution |
 | ----- | ----- | -----|
-| AccountNotExistException | 账号不存在 | 检查账号信息是否正确 |
-| AuthenticationException | 验证的账号或密码错误 | 检查账号信息是否正确 |
-| ExhaustedException | 接口的调用次数用尽 | 联系开发人员 |
-| SDKException | 接口的调用次数用尽 | 初始化失败, 联系开发人员 |
+| AccountNotExistException | Account does not exist | Check if account info is correct |
+| AuthenticationException | Account or password incorrect | Check if account info is correct |
+| ExhaustedException | Credits used up | Please contact us |
+| SDKException | Credits used up | Please contact us |
 
 <br/>
 
 ## 3. Camera API
 
-布局文件中使用:
+In layout file:
 
 ```xml
-
-<com.kiri.sdk.camerakit.view.CameraView android:id="@+id/camera_view"
-    android:layout_width="match_parent" android:layout_height="match_parent" />
+<com.kiri.advance.camera.toolkit.view.CameraView
+        android:id="@+id/camera_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 ```
 
-Kotlin API:
+
+KT code API:
 
 ```Kotlin
-// Init camera and preview
+// Initialize camera and preview 
 cameraView.bind(LifecycleOwner)
 
-// 获取可以调整的 ev, iso, ss 的范围区间值
+// Get the adjustable range of ev (exposure value), iso, ss (shutter speed)
 cameraView.advAdjustInfo
 
-// 可以调整的 ev 范围, List<ParamsEntity> 类型
+// Adjustable range of ev, type: List<ParamsEntity>
 cameraView.advAdjustInfo?.ev
 
-// 可以调整的 iso 范围, List<ParamsEntity> 类型
+// Adjustable range of iso, type: List<ParamsEntity>
 cameraView.advAdjustInfo?.iso
 
-// 可以调整的 ss 范围, List<ParamsEntity> 类型
+// Adjustable range of ss, type: List<ParamsEntity>
 cameraView.advAdjustInfo?.ss
 
-// 设置相机预览时动态 iso, ss, ev 值变化的回调
+// Set Listener of the ev, iso, ss value change in camera preview page
 cameraView.setOnPreviewAdvParamsChange(OnPreviewAdvParamsChangeListener)
 
-// 设置相机当前的 EV 值
+// Set ev value of the camera
 cameraView.controlEV(ParamsEntity)
 
-// 设置相机当前的 ISO 值
+// Set iso value of the camera
 cameraView.controlISO(ParamsEntity)
 
-// 设置相机当前的 SS 值
+// Set ss value of the camera
 cameraView.controlSS(ParamsEntity)
 
-// 重置当前相机的 EV, ISO, SS 值
+// Reset ev, iso, ss value of the camera
 cameraView.resetAdv()
 
-// 修改当前相机的测光模式, 可选项为: CameraAdvanceMode.Auto (自动测光), CameraAdvanceMode.Manual (手动测光)
+// Change the test exposure mode. Available mode:  CameraAdvanceMode.Auto (Auto change exposure), CameraAdvanceMode.Manual (Manually change exposure)
 cameraView.changeAdvMode(CameraAdvanceMode)
 
-// 获取相机当前的测光模式, 对应 changeAdvMode 设置的值, 默认为 CameraAdvanceMode.Auto (自动测光)
+// Get the test exposure mode. Default: CameraAdvanceMode.Auto (Auto change exposure)
 cameraView.advMode
 
-// 设置拍摄的照片存放路径
+// Set the path of captured photos.
 cameraView.setSavePath(File)
 
-// 设置拍摄相关的事件回调
+// Set capturing photo related callback 
 cameraView.setTakePictureListener(object : OnTakePictureListener {
     override fun onTaken(photoFile: File) {
-        Log.e(TAG, "已拍摄一张照片, 存放位置为: ${photoFile.absolutePath}")
+        Log.e(TAG, "Took one photo, saved in: ${photoFile.absolutePath}")
     }
 
     override fun onTakeError(exception: Exception) {
-        Log.e(TAG, "照片拍摄出错, 异常为: ${exception.message}")
+        Log.e(TAG, "Error in taking photo, error message is: ${exception.message}")
     }
 })
 
-// 拍摄照片
+// Taking photos.
 cameraView.takePicture()
 ```
 
-方法说明:
+Method:
 
-| 方法名称 | 说明 |
+| Method name | Definition |
 | ----- | ----- |
-| bind | 初始化相机和预览操作, 参数为 LifecycleOwner 对象, 会自动绑定生命周期 |
-| setSavePath | 设置拍摄的照片存放路径, 参数为 File 对象 |
-| setTakePictureListener | 设置拍摄相关的事件回调，为 OnTakePictureListener 类型 |
-| takePicture | 拍摄照片 |
-| setOnPreviewAdvParamsChange | 设置相机预览时动态 iso, ss, ev 值变化的回调 |
-| controlEV | 设置相机当前的 EV 值 |
-| controlISO | 设置相机当前的 ISO 值 |
-| controlSS | 设置相机当前的 SS 值 |
-| resetAdv | 重置当前相机的 EV, ISO, SS 值 |
+| bind | Initialize camera and preview |
+| setSavePath | Set the path of captured photos. |
+| setTakePictureListener | Set capturing photo related callback |
+| takePicture | Taking photos |
+| setOnPreviewAdvParamsChange | Set Listener of the ev, iso, ss value change in camera preview page |
+| controlEV | Set ev value of the camera |
+| controlISO | Set iso value of the camera |
+| controlSS | Set ss value of the camera |
+| resetAdv | Reset ev, iso, ss value of the camera |
+
 
 <br/>
 
-OnTakePictureListener 声明:
+OnTakePictureListener declaration:
 
-| 返回类型 | 方法签名 | 说明 |
+| Return type | Function signiture | Definition |
 | ----- | ----- | ----- |
-| void | onTaken(photoFile: File) | 拍摄并保存单张照片成功的回调方法, 会将本次拍摄成功的照片文件返回回来 |
-| void | onTakeError(exception: Exception) | 拍摄发生异常时的回调, 参数会将本次的异常信息携带回来 |
+| void | onTaken(photoFile: File) | Capture one photo succesfully, will return the captured photo |
+| void | onTakeError(exception: Exception) | Capture one photo failed, will return the error message |
 
 <br/>
 
-ParamsEntity 声明:
+ParamsEntity declaration:
 
-| 变量类型 | 变量名 | 说明 |
+| Variable type | Variable name | Description |
 | ----- | ----- | ----- |
-| String | formatStr | 当前值用于格式化的字符串 |
-| Float | value | 当前参数实际需要传递给相机的值 |
-| Int | step | 当前参数类型实际间隔的 UI 步长 |
-| Int | index | 当前参数实际在范围列表中的索引位置 |
+| String | formatStr | String of the value to display on UI |
+| Float | value |  Real value to pass to the camera |
+| Int | step | Steps between two level of the value, its only for UI purpose |
+| Int | index | Index of the current value in the range list |
 
-| 返回类型 | 方法签名 | 说明 |
+| Return type | Function signiture | Definition |
 | ----- | ----- | ----- |
-| Boolean | isEmpty() | 当前参数对象是否为空对象, 定义为 formatStr 为空字符串 & value = -1 & step = -1 & index = -1 |
+| Boolean | isEmpty() | Check if current variable is empty, Definition: formatStr is empty String & value = -1 & step = -1 & index = -1 |
 
 <br/>
 
-OnPreviewAdvParamsChangeListener 声明:
+OnPreviewAdvParamsChangeListener declaration:
 
-| 返回类型 | 方法签名 | 说明 |
+| Return type | Function signiture | Definition |
 | ----- | ----- | ----- |
-| void | onPreviewAdvParamsChanged(previewParams: PreviewAdvParams) | 当当前相机预览的 iso, ss, ev 发生变化时会回调该方法 |
+| void | onPreviewAdvParamsChanged(previewParams: PreviewAdvParams) | This function will be calledback when current camera has ev, iso, or ss value change |
 
 <br/>
 
-PreviewAdvParams 声明:
+PreviewAdvParams declaration:
 
-| 变量类型 | 变量名 | 说明 |
+| Variable type | Variable name | Description |
 | ----- | ----- | ----- |
-| ParamsEntity | iso | 当前预览时的 iso 参数值 |
-| ParamsEntity | ss | 当前预览时的 ss 参数值 |
-| ParamsEntity | ev | 当前预览时的 ev 参数值 |
+| ParamsEntity | iso | iso value of the camera |
+| ParamsEntity | ss | ss value of the camera |
+| ParamsEntity | ev | ev value of the camera |
 
-⚠️ 注意：相机权限需要自行动态申请
+⚠️ Note：You have to ask the camera permission youself
 
-## 4. 示例代码
+## 4. Code examples
 
 #### activity_main.xml
 

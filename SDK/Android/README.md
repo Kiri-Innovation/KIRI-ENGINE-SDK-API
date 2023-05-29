@@ -1,6 +1,6 @@
 # KIRI Engine Android SDK documentation
 
-## [samples](samples) 文件夹中是所有 SDK 的示例 Demo 工程, 包含详尽的代码使用示例
+## [samples](samples) includes the sample codes of all the SDKs
 
 <br/>
 
