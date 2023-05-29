@@ -105,14 +105,16 @@ struct VideoCaptureContentView: View {
     
     func checkVideo() {
         guard let url = self.fileURL else { return }
-        do {
-            try VideoTools.checkVideoFile(url)
-            message = "Check success"
-            isShowMessage = true
-        } catch {
-            self.error = error
-            isShowError = true
-            print("error:\(error)")
+        VideoTools.checkVideoFile(url) { result in
+            switch result {
+            case .success(let success):
+                message = "Check success"
+                isShowMessage = true
+            case .failure(let error):
+                self.error = error
+                isShowError = true
+                print("error:\(error)")
+            }
         }
     }
 }

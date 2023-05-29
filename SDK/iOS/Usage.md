@@ -381,6 +381,17 @@ videoCaptureVC.delegate = vc
 func videoCapture(_ vc: KIRIEngineSDK.VideoCaptureVC, didFinishRecording outputFileURL: URL, error: Error?)
 ```
 
+### 获取需要上传的视频参数
+```swift
+class VideoTools {
+...
+public class func checkVideoFile(_ file: URL, completion: @escaping (Result<KIRIEngineSDK.VideoParameter, Error>) -> Void)
+// or
+public class func checkVideoFile(_ file: URL) async throws -> KIRIEngineSDK.VideoParameter
+...
+}
+```
+
 ### Example
 ```swift
 import SwiftUI
@@ -483,14 +494,16 @@ struct VideoCaptureContentView: View {
     
     func checkVideo() {
         guard let url = self.fileURL else { return }
-        do {
-            try VideoTools.checkVideoFile(url)
-            message = "Check success"
-            isShowMessage = true
-        } catch {
-            self.error = error
-            isShowError = true
-            print("error:\(error)")
+        VideoTools.checkVideoFile(url) { result in
+            switch result {
+            case .success(let success):
+                message = "Check success"
+                isShowMessage = true
+            case .failure(let error):
+                self.error = error
+                isShowError = true
+                print("error:\(error)")
+            }
         }
     }
 }
