@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.kiri.sdk.samples.advance.camera.demo"
+        applicationId "com.kiri.sdk.samples.basic.camera.record.demo"
         minSdk 21
         targetSdk 33
         versionCode 1
