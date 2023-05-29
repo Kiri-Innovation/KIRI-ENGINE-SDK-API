@@ -45,10 +45,19 @@ dependencies {
 ```kotlin
 import com.kiri.sdk.basic.tool.VideoVerifyTool
 
-// Use tool get file specialKey
-val specialKey = VideoVerifyTool.verify(file)
+// Use tool get file VerifyResult
+val verifyResult = VideoVerifyTool.verify(file)
 // TODO Use key to create task by server
 ```
+
+<br/>
+
+VerifyResult 属性说明:
+| 属性类型                     | 属性名称         | 说明          |
+|--------------------------|------------|---------------|
+| String | resolution      | 视频的宽高信息    |
+| String  | specialKey | 视频的描述信息    |
+| Long       | length  | 视频的时长, 单位为秒        |
 
 <br/>
 
@@ -272,8 +281,8 @@ class MainActivity : AppCompatActivity() {
             binding.recordView.startRecord(
                 onSaved = { file ->
                     Log.e(TAG, "Record success, file: ${file.absoluteFile}")
-                    // TODO Use VideoVerifyTool get special key to upload server
-                    val specialKey = VideoVerifyTool.verify(file)
+                    // TODO Use VideoVerifyTool get VerifyResult to upload server
+                    val verifyResult = VideoVerifyTool.verify(file)
                 },
                 onError = { e ->
                     Log.e(TAG, "Record error, error: ${e.message}")

@@ -63,8 +63,8 @@ class MainActivity : AppCompatActivity() {
             binding.recordView.startRecord(
                 onSaved = { file ->
                     Log.e(TAG, "Record success, file: ${file.absoluteFile}")
-                    // TODO Use VideoVerifyTool get special key to upload server
-                    val specialKey = VideoVerifyTool.verify(file)
+                    // TODO Use VideoVerifyTool get VerifyResult to upload server
+                    val verifyResult = VideoVerifyTool.verify(file)
                 },
                 onError = { e ->
                     Log.e(TAG, "Record error, error: ${e.message}")
