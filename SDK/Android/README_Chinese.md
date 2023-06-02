@@ -8,6 +8,10 @@
 
 <br/>
 
+## [BasicCamera Record SDK 文档](samples/BasicCameraRecordDemo/README_Chinese.md)
+
+<br/>
+
 ## [AdvanceCamera SDK 文档](samples/AdvanceCameraDemo/README_Chinese.md)
 
 <br/>

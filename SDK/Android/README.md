@@ -8,6 +8,10 @@
 
 <br/>
 
+## [BasicCamera Record SDK Documentation](samples/BasicCameraRecordDemo/README.md)
+
+<br/>
+
 ## [AdvanceCamera SDK Documentation](samples/AdvanceCameraDemo/README.md)
 
 <br/>

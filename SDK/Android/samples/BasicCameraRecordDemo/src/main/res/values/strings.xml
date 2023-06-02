@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BasicCameraRecordDemo</string>
+
+    <string name="start_record_text">Start Record</string>
+</resources>
