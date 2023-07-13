@@ -2,9 +2,9 @@
 
 ## Version description:
 
-| Library name | Latest version |
-| ----- | ----- |
-| BasicAuthentication | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.0.0-green"> |
+| Library name | Latest version                                                                       |
+| ----- |--------------------------------------------------------------------------------------|
+| BasicAuthentication | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.1.0-green"> |
 | 3DModelDisplayKit | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.0.0-green"> |
 
 ## 1. Integrate to project

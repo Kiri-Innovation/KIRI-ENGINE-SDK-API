@@ -5,7 +5,7 @@
 | Library name | Latest version                                                                       |
 | ----- |--------------------------------------------------------------------------------------|
 | BasicAuthentication | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.1.0-green"> |
-| CameraKit | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.1.0-green"> |
+| CameraKit | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.1.1-green"> |
 
 <br/>
 
