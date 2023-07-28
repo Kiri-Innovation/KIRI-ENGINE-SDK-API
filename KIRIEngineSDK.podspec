@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name          = 'KIRIEngineSDK'
-    s.version       = '1.1.1'
+    s.version       = '1.1.2'
     s.summary       = "kiri's sdk collection"
     s.homepage      = 'https://github.com/Kiri-Innovation/KIRI-ENGINE-SDK-API'
     s.license       = { 
