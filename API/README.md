@@ -1,17 +1,6 @@
 # KIRIENGINE API Instruction
 
-## 1. Register an account
-
-Request URL: /v1/app/organization/open/create
-
-KIRI ENGINE 3D scanning service will be provided to authorized account. Account name and password can be customized. If notification is need, please fill in notifyUrl
-argument to receive the status broadcast. Please refer to number 7 to do the test.
-
-| Code | Description            |
-| ---- | ---------------------- |
-| 1002 | Account already exists |
-
-## 2. Get token
+## 1. Get token
 
 Request URL: /v1/app/auth/open/getToken
 
@@ -19,13 +8,13 @@ After account registration, use "Get Token" api to get token and then access to 
 
 **token expires in 30 mins，please cache it so that you do not have to request token everytime.**
 
-## 3. Update account information
+## 2. Update account information
 
 Request URL: /v1/app/organization/update
 
 You can update your account information. e.g. Change password or NotifyUrl <br/>
 
-## 4. Upload photos
+## 3. Upload photos
 
 Request URL: /v1/app/calculate/upload
 
@@ -40,7 +29,7 @@ To ensure the quality of the 3d models, please upload at least 20 images but no 
 | 2007 | Uploaded photoset does not meet minimum requeirment，Please upload at least 20 images |
 | 2005 | Uploaded photoset exceeded the maximum limitation            |
 
-## 5. Get 3d Model Status
+## 4. Get 3d Model Status
 
 Request URL: /v1/app/calculate/getStatus
 
@@ -55,7 +44,7 @@ Pass the serialize number to this API to get the current calculation status of t
 | 3      | Queuing                                      |
 | 4      | Exported                                     |
 
-## 6. Download 3d model zip file
+## 5. Download 3d model zip file
 
 Request URL: /v1/app/calculate/getModelZip
 
@@ -69,7 +58,7 @@ Use this API to get 3d model zip file download link. This link will be available
 | 2002 | This model has been exported already, cannot get download link |
 | 2003 | Error, cannot get status of this model                       |
 
-## 7. Test notification
+## 6. Test notification
 
 Request URL:  /v1/app/organization/testNotify
 
@@ -83,29 +72,29 @@ This API to test if you can receive the 3d model status broadcast from KIRI ENGI
 
 **3、Please return HTTP code 200 to our server if you receive the notification.**
 
-## 8. Create Subaccount
+## 7. Create Subaccount
 
 Request URL: /v1/app/user/create
 
 If there are multiple account usage scenarios, we recommend creating a subaccount and using the subaccount to log in and obtain a token (refer to 9). This way, you can upload images using the subaccount, which has almost the same functionality as the main organization account.
 
-## 9. Update Subaccount
+## 8. Update Subaccount
 
 Request URL: /v1/app/user/update
 
 Considering that some users may require additional notification settings, we support setting notification addresses on sub-accounts as well. If a sub-account is used to upload images, notifications regarding that task will be prioritized to the notification address set on the sub-account. If no notification address is set on the sub-account, then the notification will be sent to the organization account.
 
-## 10. Subaccount Login
+## 9. Subaccount Login
 
 Request URL: /v1/app/auth/open/login
 
 Use this entry point to log in to a subaccount and obtain a token, following the same process as the main organization account.
 
-## 11. Create AppKey
+## 10. Create AppKey
 
 Request URL: /v1/app/sdk/createAppKey.
 
-## 12. Globle code instruction
+## 11. Globle code instruction
 
 | Code | Description                                | Solution                                   |
 | ---- | ------------------------------------------ | ------------------------------------------ |
