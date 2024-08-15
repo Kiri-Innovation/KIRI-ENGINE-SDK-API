@@ -1,28 +1,28 @@
 # Using KIRIEngineSDK
 
 ## BasicCamera
-### 1.使用KIRIEngineSDK时，先使用KIRISDK.share.setup初始化鉴权
+### 1.When using KIRIEngineSDK, use kirisdk.share-setup to initialize authentication
 ```swift
 KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
     print("result:\(result)")
 }
 ```
-### 2.初始化CameraView
+### 2.initialize CameraView
 ```swift
 let cameraView = CameraView()
 ```
-### 3.使用setPhotoFolderPath设置自定义图片路径
+### 3.Use setPhotoFolderPath to set a custom image path
 ```swift
 let docPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
 cameraView.setPhotoFolderPath("\(docPath)/KIRIEngineSDK")
 ```
-### 4.调用startPreview开始请求权限并显示画面
+### 4.Call startPreview to start requesting permissions and display the screen
 ```swift
 cameraView.startPreview { result in
     print("result:\(result)")
 }
 ```
-### 5.调用takePhoto开始拍照
+### 5.Call takePhoto to start taking the photo
 ```swift
 cameraView.takePhoto()
 ```
@@ -39,12 +39,12 @@ struct ContentView: View {
           UIViewPreview {
               cameraView
           }
-          Button("开始预览") {
+          Button("Start preview") {
               cameraView.startPreview { result in
                   print("result:\(result)")
               }
           }
-          Button("点击拍照") {
+          Button("Click to take a photo") {
               cameraView.takePhoto()
           }
       }
@@ -60,33 +60,33 @@ struct ContentView: View {
 
 ## AdvanceCamera
 
-### 1.使用KIRIEngineSDK时，先使用KIRISDK.share.setup初始化鉴权
+### 1.When using KIRIEngineSDK, use kirisdk.share-setup to initialize authentication
 ```swift
 KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
     print("result:\(result)")
 }
 ```
-### 3.初始化CameraView
+### 2.initialize CameraView
 ```swift
 let cameraView = CameraView<AdvanceImageCaptureModel>()
 ```
-### 4.使用setPhotoFolderPath设置自定义图片路径
+### 3.Use setPhotoFolderPath to set a custom image path
 ```swift
 let docPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
 cameraView.setPhotoFolderPath("\(docPath)/KIRIEngineSDK")
 ```
-### 5.调用startPreview开始请求权限并显示画面
+### 4.Call startPreview to start requesting permissions and display the screen
 ```swift
 cameraView.startPreview { result in
     print("result:\(result)")
 }
 ```
-### 6.调用takePhoto开始拍照
+### 5.Call takePhoto to start taking the photo
 ```swift
 cameraView.takePhoto()
 ```
 
-### 首先需要开启Advance
+### First, you need to enable Advance
 ```swift
 class AdvanceImageCaptureModel {
     ...
@@ -95,7 +95,7 @@ class AdvanceImageCaptureModel {
 }
 ```
 
-### 设置EV值
+### Set EV value
 ```swift
 class AdvanceImageCaptureModel {
     ...
@@ -104,7 +104,7 @@ class AdvanceImageCaptureModel {
 }
 ```
 
-### 设置ISO值
+### Set the ISO value
 ```swift
 class AdvanceImageCaptureModel {
     ...
@@ -112,9 +112,9 @@ class AdvanceImageCaptureModel {
     ...
 }
 ```
-- iso的设置有两种方式，一个是auto自动调节iso的值来达到设置EV值的效果，二是指定ISO不在变化
+- There are two ways to set the iso, one is to automatically adjust the iso value to achieve the effect of setting the EV value, and the other is to specify that the ISO is not changing
 
-### 设置快门值
+### Set the shutter value
 ```swift
 class AdvanceImageCaptureModel {
     ...
@@ -122,9 +122,9 @@ class AdvanceImageCaptureModel {
     ...
 }
 ```
-- 快门的设置同ISO
+- The shutter setting is the same as the ISO
 
-### 获取ISO值的变化
+### Gets the change in the ISO value
 ```swift
 class AdvanceImageCaptureModel {
     ...
@@ -132,9 +132,9 @@ class AdvanceImageCaptureModel {
     ...
 }
 ```
-- 使用isoValueSubject来实时监听ISO值的变化
+- Use isoValueSubject to listen for changes to the ISO value in real time
 
-### 获取快门值的变化
+### Gets the change in the shutter value
 ```swift
 class AdvanceImageCaptureModel {
     ...
@@ -142,7 +142,7 @@ class AdvanceImageCaptureModel {
     ...
 }
 ```
-- 使用shutterSubject来实时监听快门值的变化
+- Use shutterSubject to listen for changes in shutter values in real time
 
 ### Example
 ```swift
@@ -172,7 +172,7 @@ struct ContentView: View {
                 cameraView
             }
             HStack {
-                Button("开始预览") {
+                Button("Start preview") {
                     cameraView.startPreview { result in
                         print("result:\(result)")
                         switch result {
@@ -186,19 +186,19 @@ struct ContentView: View {
                     }
                 }
                 Spacer()
-                Button("点击拍照") {
+                Button("Click to take a photo") {
                     cameraView.takePhoto()
                 }
             }
             .padding()
             if isDeviceAvailability, let device = cameraView.captureModel.device {
                 HStack {
-                    Button("开启advance相机") {
+                    Button("Turn on the advance camera") {
                         isOpenAdvance = true
                     }
                     .disabled(isOpenAdvance)
                     Spacer()
-                    Button("关闭advance相机") {
+                    Button("Turn off the advance camera") {
                         isOpenAdvance = false
                     }
                     .disabled(!isOpenAdvance)
@@ -316,7 +316,7 @@ struct ContentView_Previews: PreviewProvider {
 ```
 
 ## 3DModelDisplay
-### 初始化CameraView
+### Initialize the CameraView
 ```swift
 let sceneView = SceneView(frame: .zero)
 ```
@@ -327,7 +327,7 @@ import SwiftUI
 import KIRIEngineSDK
 
 ...
-使用SceneView之前先初始化
+Initialize before using SceneView
 KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
     print("result:\(result)")
 }
@@ -359,13 +359,13 @@ struct ContentView_Previews: PreviewProvider {
 ```
 
 ## VideoCapture
-### 1.使用KIRIEngineSDK时，先使用KIRISDK.share.setup初始化鉴权
+### 1.When using KIRIEngineSDK, use kirisdk.share-setup to initialize authentication
 ```swift
 KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
     print("result:\(result)")
 }
 ```
-### 初始化VideoCaptureVC
+### Example Initialize VideoCaptureVC
 ```swift
 /// - Parameters:
 ///   - folderPath: set video file save path
@@ -374,14 +374,14 @@ KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
 public init?(folderPath: String? = nil, minSecond: Int = 3, maxSecond: Int = 60 * 2)
 ```
 
-### 获取拍摄的视频链接
+### Get a link to the shot video
 ```swift
 videoCaptureVC.delegate = vc
 实现方法来获取链接
 func videoCapture(_ vc: KIRIEngineSDK.VideoCaptureVC, didFinishRecording outputFileURL: URL, error: Error?)
 ```
 
-### 获取需要上传的视频参数
+### Obtain the parameters of the video to be uploaded
 ```swift
 class VideoTools {
 ...
