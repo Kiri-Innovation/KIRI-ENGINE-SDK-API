@@ -17,8 +17,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "KIRIEngineSDK",
-            url: "https://repository.kiri-engine.com/repository/iOS-SDK/1.1.2/KIRIEngineSDK.xcframework.zip",
-            checksum: "431c085a52e7722eb3b5ab1cb5f7530c2e2498eb5c5672c5de59c5c05bb8fab3"
+            url: "https://repository.kiri-engine.com/repository/iOS-SDK/1.1.3/KIRIEngineSDK.xcframework.zip",
+            checksum: "03b820aa99399d3a268c761856afea844cc39164af8fd395527b81238c01aea5"
         )
     ]
 )
