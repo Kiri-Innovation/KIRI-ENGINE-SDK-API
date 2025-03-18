@@ -353,7 +353,7 @@ public init?(folderPath: String? = nil, minSecond: Int = 3, maxSecond: Int = 60 
 ### Get a link to the shot video
 ```swift
 videoCaptureVC.delegate = vc
-实现方法来获取链接
+
 func videoCapture(_ vc: KIRIEngineSDK.VideoCaptureVC, didFinishRecording outputFileURL: URL, error: Error?)
 ```
 
