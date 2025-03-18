@@ -9,8 +9,6 @@ import SwiftUI
 import KIRIEngineSDK
 
 struct ContentView: View {
-  @State
-  var isAuthorization = false
   
   var body: some View {
     VStack {
@@ -40,17 +38,6 @@ struct ContentView: View {
         
       } else {
         
-      }
-    }
-    .onAppear {
-      KIRISDK.share.setup(envType: .test, appKey: "8dc8f5321f6325c55c649409342e7af6") { result in
-        print("result:\(result)")
-        switch result {
-        case .success:
-          isAuthorization = true
-        case .failure:
-          isAuthorization = false
-        }
       }
     }
   }
