@@ -12,8 +12,7 @@ struct ContentView: View {
   
   var body: some View {
     VStack {
-      if isAuthorization {
-        NavigationView {
+      NavigationView {
           List {
             NavigationLink("Camera Demo") {
               CameraContentView()
@@ -35,10 +34,6 @@ struct ContentView: View {
           }
           .navigationTitle("KIRIEngineSDK-Demo")
         }
-        
-      } else {
-        
-      }
     }
   }
 }
