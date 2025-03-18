@@ -1,5 +1,5 @@
 # KIRI Engine API documentation
 
-## [API Documentation](API/README.md)
+## [API Documentation](https://docs.kiriengine.app/quickstart/)
 
 <br/>
