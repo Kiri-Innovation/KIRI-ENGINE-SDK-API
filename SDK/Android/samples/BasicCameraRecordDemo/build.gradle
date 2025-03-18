@@ -35,8 +35,10 @@ android {
 
 dependencies {
     // SDKs
-    implementation 'com.kiri.sdk:BasicAuthentication:1.1.0'
-    implementation 'com.kiri.sdk:CameraKit:1.1.2'
+     implementation 'com.kiri.sdk:CameraKit:1.2.0'
+
+//    implementation project(":module:BasicAuthentication")
+//    implementation project(":module:CameraKit")
 
     // Permission tool
     implementation "io.reactivex.rxjava3:rxjava:3.1.5"

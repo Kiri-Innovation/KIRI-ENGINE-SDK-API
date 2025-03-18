@@ -4,8 +4,7 @@
 
 | Library name                 | Latest version                                                                       |
 |---------------------|--------------------------------------------------------------------------------------|
-| BasicAuthentication | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.1.0-green"> |
-| CameraKit           | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.1.2-green"> |
+| CameraKit           | <img alt="Maven Central" src="https://img.shields.io/badge/KIRI--maven-1.2.0-green"> |
 
 <br/>
 
@@ -19,7 +18,6 @@ repositories {
 
 dependencies {
     // SDKs
-    implementation 'com.kiri.sdk:BasicAuthentication:<version>'
     implementation 'com.kiri.sdk:CameraKit:<version>'
 
     // Must add below dependencies
@@ -30,105 +28,7 @@ dependencies {
 }
 ```
 
-
-
-# !!!Verify only using video verification tools.
-Then it can be integrated only:
-```gradle
-dependencies {
-    // SDKs
-    implementation 'com.kiri.sdk:BasicAuthentication:<version>'
-}
-```
-
-Then you can use the following code at the location where verification is needed:
-```kotlin
-import com.kiri.sdk.basic.tool.VideoVerifyTool
-
-// Use tool get file VerifyResult
-val verifyResult = VideoVerifyTool.verify(file)
-// TODO Use key to create task by server
-```
-
-<br/>
-
-VerifyResult description of properties:
-| Property type                     | Property name         | description          |
-|--------------------------|------------|---------------|
-| String | resolution      | Width and height information of the video    |
-| String  | specialKey | Description information of the video    |
-| Long       | length  | Duration of the video, in seconds        |
-
-<br/>
-
-## 2. Initialize SDK in Application
-
-```Kotlin
-class App : Application() {
-
-    companion object {
-        private const val TAG = "App"
-    }
-
-    override fun onCreate() {
-        super.onCreate()
-
-        // Init Kiri SDK first
-        KiriSDK.init(
-            context = this,
-            isDebug = true,
-            env = EnvType.Test,
-            appKey = "Your app key",
-            onSuccess = {
-                KiriLogger.info(TAG, "SDK init completed!")
-            },
-            onError = { e ->
-                // SDK Init error
-                when (e) {
-                    is AccountNotExistException -> {
-                        KiriLogger.error(TAG, "Account does not exist!")
-                    }
-                    is AuthenticationException -> {
-                        KiriLogger.error(TAG, "Account or password is incorrect!")
-                    }
-                    is ExhaustedException -> {
-                        KiriLogger.error(TAG, "Quota used up!")
-                    }
-                    is SDKException -> {
-                        KiriLogger.error(TAG, "SDK error: ${e.message}")
-                    }
-                    else -> {
-                        KiriLogger.error(TAG, "SDK init failed, error: ${e.message}")
-                    }
-                }
-            }
-        )
-    }
-
-}
-```
-
-| Parameter Name | Description |
-| ----- | ----- |
-| context | Context |
-| isDebug | if this is Debug mode. Default is off. If you are in testing environment, we recommend you turn this on |
-| env | SDK environment, EnvType.Test is Testing environment, EnvType.Prod is Production environment |
-| appKey | App key is the unique key can be used in certain app package. Please do not give to others|
-| onSuccess | initialize SDK successfully |
-| onError | initialize SDK failed, will return the fail reason |
-
-Possible errors in onError:
-
-| Error type | Description | Solution |
-| ----- | ----- | -----|
-| AccountNotExistException | Account does not exist | Check if account info is correct |
-| AuthenticationException | Account or password incorrect | Check if account info is correct |
-| ExhaustedException | Credits used up | Please contact us |
-| SDKException | Credits used up | Please contact us |
-
-<br/>
-
-## 3. Camera API
+## 2. Camera API
 
 In layout file:
 
@@ -190,7 +90,7 @@ Method:
 
 <br/>
 
-## 4. Code examples
+## 3. Code examples
 
 #### activity_main.xml
 
@@ -224,7 +124,6 @@ import android.Manifest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.kiri.sdk.basic.tool.VideoVerifyTool
 import com.kiri.sdk.samples.basic.camera.record.demo.databinding.ActivityMainBinding
 import com.tbruyelle.rxpermissions3.RxPermissions
 import java.io.File
@@ -283,8 +182,6 @@ class MainActivity : AppCompatActivity() {
             binding.recordView.startRecord(
                 onSaved = { file ->
                     Log.e(TAG, "Record success, file: ${file.absoluteFile}")
-                    // TODO Use VideoVerifyTool get VerifyResult to upload server
-                    val verifyResult = VideoVerifyTool.verify(file)
                 },
                 onError = { e ->
                     Log.e(TAG, "Record error, error: ${e.message}")
