@@ -1,6 +1,6 @@
 # KIRI Engine API&SDK 使用说明
 
-## [API 文档说明](API/README_Chinese.md)
+## [API 文档说明](https://docs.kiriengine.app/quickstart/)
 
 <br/>
 
