@@ -1,28 +1,22 @@
 # Using KIRIEngineSDK
 
 ## BasicCamera
-### 1.When using KIRIEngineSDK, use kirisdk.share-setup to initialize authentication
-```swift
-KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
-    print("result:\(result)")
-}
-```
-### 2.initialize CameraView
+### 1.initialize CameraView
 ```swift
 let cameraView = CameraView()
 ```
-### 3.Use setPhotoFolderPath to set a custom image path
+### 2.Use setPhotoFolderPath to set a custom image path
 ```swift
 let docPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
 cameraView.setPhotoFolderPath("\(docPath)/KIRIEngineSDK")
 ```
-### 4.Call startPreview to start requesting permissions and display the screen
+### 3.Call startPreview to start requesting permissions and display the screen
 ```swift
 cameraView.startPreview { result in
     print("result:\(result)")
 }
 ```
-### 5.Call takePhoto to start taking the photo
+### 4.Call takePhoto to start taking the photo
 ```swift
 cameraView.takePhoto()
 ```
@@ -60,28 +54,22 @@ struct ContentView: View {
 
 ## AdvanceCamera
 
-### 1.When using KIRIEngineSDK, use kirisdk.share-setup to initialize authentication
-```swift
-KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
-    print("result:\(result)")
-}
-```
-### 2.initialize CameraView
+### 1.initialize CameraView
 ```swift
 let cameraView = CameraView<AdvanceImageCaptureModel>()
 ```
-### 3.Use setPhotoFolderPath to set a custom image path
+### 2.Use setPhotoFolderPath to set a custom image path
 ```swift
 let docPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
 cameraView.setPhotoFolderPath("\(docPath)/KIRIEngineSDK")
 ```
-### 4.Call startPreview to start requesting permissions and display the screen
+### 3.Call startPreview to start requesting permissions and display the screen
 ```swift
 cameraView.startPreview { result in
     print("result:\(result)")
 }
 ```
-### 5.Call takePhoto to start taking the photo
+### 4.Call takePhoto to start taking the photo
 ```swift
 cameraView.takePhoto()
 ```
@@ -326,13 +314,6 @@ let sceneView = SceneView(frame: .zero)
 import SwiftUI
 import KIRIEngineSDK
 
-...
-Initialize before using SceneView
-KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
-    print("result:\(result)")
-}
-...
-
 struct ContentView: View {
     let sceneView = SceneView(frame: .zero)
     
@@ -359,12 +340,7 @@ struct ContentView_Previews: PreviewProvider {
 ```
 
 ## VideoCapture
-### 1.When using KIRIEngineSDK, use kirisdk.share-setup to initialize authentication
-```swift
-KIRISDK.share.setup(envType: .test, appKey: "appkey") { result in
-    print("result:\(result)")
-}
-```
+
 ### Example Initialize VideoCaptureVC
 ```swift
 /// - Parameters:
