@@ -8,8 +8,4 @@
 
 <br/>
 
-## [iOS SDK 文档说明](SDK/iOS/README_Chinese.md)
-
-<br/>
-
 英文版本: [English version](README.md)
