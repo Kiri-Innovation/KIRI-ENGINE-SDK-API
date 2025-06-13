@@ -489,3 +489,4 @@ Here is a list of the different categories of status codes returned by the KIRI 
 | 2008 | The model is currently in the processing queue. Please wait. |
 | 2009 | The video does not meet the requirements and cannot be uploaded. |
 | 2010 | The file format does not meet the requirements.              |
+| 2012 | The maximum upload file size cannot exceed 3GB              |
